@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
+  Button,
   StyleSheet,
   Text,
   View
@@ -18,6 +19,7 @@ class example extends Component {
         <Text style={styles.instructions}>
           {`Remember to add your own segment key, before running this example.`}
         </Text>
+        <Button onPress={() => Analytics.track('button pressed')} title="Press to track" style={styles.button}/>
       </View>
     )
   }
@@ -40,6 +42,9 @@ const styles = StyleSheet.create({
     color: '#333333',
     margin: 10,
   },
+  button : {
+    margin: 10
+  }
 })
 
 AppRegistry.registerComponent('example', () => example)
