@@ -205,6 +205,7 @@ import Analytics, { AnalyticsConstants } from 'react-native-analytics-segment-io
 - [Analytics.enable()](#enable-function-)
 - [Analytics.disable()](#disable-function-)
 
+// TODO : We should recommend using the native setup calls instead
 ## setup: function (key, options = {})
 *Initial framework setup*
 ```js
