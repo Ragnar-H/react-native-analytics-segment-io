@@ -44,4 +44,27 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
   }
+
+  @Override
+  public void onReactInitialized(ReactContext reactContext) {
+    super.onReactInitialized(reactContext);
+
+    initSegment();
+  }
+
+  private void initSegment() {
+    SegmentModule segmentModule = new SegmentModule(new ReactApplicationContext(getBaseContext()));
+
+    WritableMap options = new WritableNativeMap();
+    options.putBoolean("trackApplicationLifecycleEvents", true);
+
+    Callback callback = new Callback() {
+      @Override
+      public void invoke(Object... args) {
+        // No-op
+      }
+    };
+
+    segmentModule.setup(BuildConfig.SEGMENT_KEY, options, new PromiseImpl(callback, callback));
+  }
 }
